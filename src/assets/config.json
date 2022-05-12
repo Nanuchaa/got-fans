@@ -1,7 +1,5 @@
 {
-    "backend_server": "http://localhost:8080",
-
-    "authenticate": "/login",
-
-    "houses": "houses"
+  "backend_server": "http://localhost:8080",
+  "authenticate": "/login",
+  "houses": "houses"
 }
