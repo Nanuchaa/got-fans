@@ -1,0 +1,66 @@
+<p-toolbar>
+    <button pButton pRipple type="button" icon="pi pi-home" class="p-button-rounded p-button-info"
+        pTooltip="Go to Resources Filter" routerLink="/resources"></button>
+    
+        <button pButton pRipple type="button" icon="pi pi-sign-out" class="p-button-rounded p-button-info"
+        pTooltip="Logout" (click)="authService.logout()"></button>
+</p-toolbar>
+<br>
+
+<p-table *ngIf="service.booklist.length>0" [value]="service.booklist" styleClass="p-datatable-striped" [paginator]="true" [rows]="20"
+    selectionMode="single" responsiveLayout="scroll">
+
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            List of Books
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="header" >
+        <tr>
+            <th style="min-width: 20%">
+                <div>Name
+                    <p-columnFilter style="margin-top: 10px" type="text" field="name" ></p-columnFilter>
+                </div>
+            </th>
+            <th style="min-width: 20%">
+                <div>ISBN
+                    <p-columnFilter type="text" field="isbn" ></p-columnFilter>
+                </div>
+            </th>
+            <th style="min-width: 20%">
+                <div>Authors
+                    <p-columnFilter type="text" field="authors" ></p-columnFilter>
+                </div>
+            </th>
+            <th style="min-width: 20%">
+                <div>Publisher
+                    <p-columnFilter type="text" field="publisher" ></p-columnFilter>
+                </div>
+            </th>
+            <th style="min-width: 20%">
+                <div>Country
+                    <p-columnFilter type="text" field="country" ></p-columnFilter>
+                </div>
+            </th>
+            <th style="min-width: 10%"></th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.name}}</td>
+            <td>{{book.isbn}}</td>
+            <td>{{book.authors}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.country}}</td>
+            <td>
+                <button pButton pRipple type="button" icon="pi pi-search" pTooltip="See Book details"
+                    tooltipPosition="left" class="p-button-rounded" (click)="goToDetailsView(book)">
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+
+</p-table>
+

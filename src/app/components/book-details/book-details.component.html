@@ -1,0 +1,72 @@
+
+<p-toolbar>
+    <button pButton pRipple type="button" icon="pi pi-home" class="p-button-rounded p-button-info"
+        pTooltip="Go to Resources Filter" routerLink="/resources"></button>
+    <button pButton pRipple type="button" icon="pi pi-backward" class="p-button-rounded p-button-info"
+        pTooltip="Go back to the list of Books" routerLink="/books"></button>
+    <button pButton pRipple type="button" icon="pi pi-sign-out" class="p-button-rounded p-button-info"
+        pTooltip="Logout" (click)="authService.logout()"></button>
+</p-toolbar>
+<br>
+
+<span *ngIf="service.booklist.length>0">
+    <p-fieldset legend="Book Details">
+
+        <div class="p-grid">
+            <span class="p-col-6">Name: </span>
+            <span class="p-col-6">{{service.book.name}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">ISBN: </span>
+            <span class="p-col-6">{{service.book.isbn}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Authors: </span>
+            <span class="p-col-6">{{service.book.authors}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Number of pages: </span>
+            <span class="p-col-6">{{service.book.numberOfPages}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Publisher: </span>
+            <span class="p-col-6">{{service.book.publisher}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Country: </span>
+            <span class="p-col-6">{{service.book.country}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Media type: </span>
+            <span class="p-col-6">{{service.book.mediaType}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Released: </span>
+            <span class="p-col-6">{{service.book.released}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Characters: </span>
+            <span class="p-col-6">
+                <p-orderList [value]="service.book.characters">
+                    <ng-template let-characters pTemplate="item">
+                        <a routerLink="/characters">{{characters}}</a>
+                    </ng-template>
+                </p-orderList>
+            </span>
+        </div>
+        
+        <div class="p-grid">
+            <span class="p-col-6">POV Characters: </span>
+            <span class="p-col-6">
+                <p-orderList [value]="service.book.povCharacters">
+                    <ng-template let-povCharacters pTemplate="item">
+                        <a routerLink="/characters">{{povCharacters}}</a>
+                    </ng-template>
+                </p-orderList>
+            </span>
+        </div>
+    </p-fieldset>
+</span>

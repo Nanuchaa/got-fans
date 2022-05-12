@@ -1,0 +1,84 @@
+<p-toolbar>
+    <button pButton pRipple type="button" icon="pi pi-home" class="p-button-rounded p-button-info"
+        pTooltip="Go to Resources Filter" routerLink="/resources"></button>
+    <button pButton pRipple type="button" icon="pi pi-backward" class="p-button-rounded p-button-info"
+        pTooltip="Go back to the list of Houses" routerLink="/houses"></button>
+    <button pButton pRipple type="button" icon="pi pi-sign-out" class="p-button-rounded p-button-info"
+        pTooltip="Logout" (click)="authService.logout()"></button>
+</p-toolbar>
+<br>
+
+<span *ngIf="service.houselist.length>0">
+    <p-fieldset legend="House Details">
+
+        <div class="p-grid">
+            <span class="p-col-6">Name: </span>
+            <span class="p-col-6">{{service.house.name}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Region: </span>
+            <span class="p-col-6">{{service.house.region}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Coat of arms: </span>
+            <span class="p-col-6">{{service.house.coatOfArms}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Words: </span>
+            <span class="p-col-6">{{service.house.words}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Titles: </span>
+            <span class="p-col-6">
+                {{service.house.titles}}
+            </span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Seats: </span>
+            <span class="p-col-6">
+                <!--p-orderList [value]="service.house.seats" [style]="{'width':'25rem'}" >
+                    <ng-template let-seats pTemplate="item">{{seats}}</ng-template>
+                </p-orderList-->
+                {{service.house.seats}}
+            </span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Current Lord: </span>
+            <span class="p-col-6">{{service.house.currentLord}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Heir: </span>
+            <span class="p-col-6">{{service.house.heir}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Overlord: </span>
+            <span class="p-col-6">{{service.house.overlord}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Founded: </span>
+            <span class="p-col-6">{{service.house.founded}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Ancestral weapons: </span>
+            <span class="p-col-6">{{service.house.ancestralWeapons}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Cadet branches: </span>
+            <span class="p-col-6">{{service.house.cadetBranches}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Sworn members: </span>
+            <span class="p-col-6">
+                <p-orderList [value]="service.house.swornMembers">
+                    <ng-template let-swornMembers pTemplate="item">
+                        <a routerLink="{{getUrlBySwornMembers(swornMembers)}}">{{swornMembers}}</a>
+                    </ng-template>
+                </p-orderList>
+            </span>
+        </div>
+
+    </p-fieldset>
+</span>

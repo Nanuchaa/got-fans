@@ -1,0 +1,92 @@
+<p-toolbar>
+    <button pButton pRipple type="button" icon="pi pi-home" class="p-button-rounded p-button-info"
+        pTooltip="Go to Resources Filter" routerLink="/resources"></button>
+    <button pButton pRipple type="button" icon="pi pi-backward" class="p-button-rounded p-button-info"
+        pTooltip="Go back to the list of Characters" routerLink="/characters"></button>
+    <button pButton pRipple type="button" icon="pi pi-sign-out" class="p-button-rounded p-button-info"
+        pTooltip="Logout" (click)="authService.logout()"></button>
+</p-toolbar>
+<br>
+
+<span *ngIf="service.characterlist.length>0">
+    <p-fieldset legend="Character Details">
+
+        <div class="p-grid">
+            <span class="p-col-6">Name: </span>
+            <span class="p-col-6">{{service.character.name}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Gender: </span>
+            <span class="p-col-6">{{service.character.gender}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Culture: </span>
+            <span class="p-col-6">{{service.character.culture}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Born: </span>
+            <span class="p-col-6">{{service.character.born}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Died: </span>
+            <span class="p-col-6">{{service.character.died}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Titles: </span>
+            <span class="p-col-6">{{service.character.titles}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Aliases: </span>
+            <span class="p-col-6">
+                <p-orderList [value]="service.character.aliases">
+                    <ng-template let-aliases pTemplate="item"><div>{{aliases}}</div></ng-template>
+                </p-orderList>
+            </span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Father: </span>
+            <span class="p-col-6">{{service.character.father}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Mother: </span>
+            <span class="p-col-6">{{service.character.mother}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Spouse: </span>
+            <span class="p-col-6">{{service.character.spouse}}</span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">Allegiances: </span>
+            <span class="p-col-6">{{service.character.allegiances}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Books: </span>
+            <span class="p-col-6">
+                <p-orderList [value]="service.character.books">
+                    <ng-template let-books pTemplate="item">
+                        <a routerLink="/books">{{books}}</a>
+                    </ng-template>
+                </p-orderList>
+            </span>
+        </div>
+
+        <div class="p-grid">
+            <span class="p-col-6">POV books: </span>
+            <span class="p-col-6">{{service.character.povBooks}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">TV Series: </span>
+            <span class="p-col-6">{{service.character.tvSeries}}</span>
+        </div>
+        <div class="p-grid">
+            <span class="p-col-6">Played by: </span>
+            <span class="p-col-6">{{service.character.playedBy}}</span>
+        </div>
+
+    </p-fieldset>
+
+</span>

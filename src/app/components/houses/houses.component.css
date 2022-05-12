@@ -1,0 +1,10 @@
+.p-panel .p-panel-header, .p-toolbar  {
+    padding: 0.5rem 1rem !important;
+}
+
+td {
+    padding: 0.1rem 1rem !important;
+}
+th {
+    padding: 0.5rem 1rem !important;
+}
